@@ -23,6 +23,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
+    
 
     use RegistersUsers;
 
@@ -31,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -66,11 +67,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $referred_by = $data['referred_by'];
  
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'affiliate_id' => $data['affiliate_id'],
+            'referred_by' => $data['referred_by']
         ]);
  
         $verifyUser = VerifyUser::create([
@@ -92,6 +97,7 @@ class RegisterController extends Controller
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
                 $status = "Your e-mail is verified. You can now login.";
+            // echo $this->from_referral_token;
             }else{
                 $status = "Your e-mail is already verified. You can now login.";
             }
@@ -100,6 +106,13 @@ class RegisterController extends Controller
         }
  
         return redirect('/login')->with('status', $status);
+    }
+
+    public function referredUser($from_affiliate_id)
+    {
+        // $this->from_referral_token = $from_affiliate_id;
+        $referred_by = $from_affiliate_id;
+        return view('Auth/register', ['referred_by' => $referred_by]);
     }
 
     protected function registered($request, $user)

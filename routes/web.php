@@ -19,3 +19,4 @@ Auth::routes();
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('register/ref/{from_affiliate_id}', 'Auth\RegisterController@referredUser');

@@ -14,26 +14,9 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/application.css') }}" rel="stylesheet">
-    <!-- common libraries. required for every page-->
-    <script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('lib/jquery-pjax/jquery.pjax.js') }}"></script>
-    <script src="{{ asset('lib/bootstrap-sass/assets/javascripts/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('lib/widgster/widgster.js') }}"></script>
-    <script src="{{ asset('lib/underscore/underscore.js') }}"></script>
-
-    <!-- common application js -->
-    <script src="{{ asset('js/main_app.js') }}"></script>
-    <script src="{{ asset('js/settings.js') }}"></script>
-    <script>
-        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
-           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
-                      https://code.google.com/p/chromium/issues/detail?id=332189
-        */
-    </script>
 </head>
 <body>
     <div id="app">
@@ -63,6 +46,25 @@
     </div>
 
     <!-- Scripts -->
+    <!-- common libraries. required for every page-->
+    <script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
+    <script src="{{ asset('lib/jquery-pjax/jquery.pjax.js') }}"></script>
+    <script src="{{ asset('lib/bootstrap-sass/assets/javascripts/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('lib/widgster/widgster.js') }}"></script>
+    <script src="{{ asset('lib/underscore/underscore.js') }}"></script>
+
+    <!-- common application js -->
+    <script src="{{ asset('js/main_app.js') }}"></script>
+    <script src="{{ asset('js/settings.js') }}"></script>
+
+     <!-- Styles -->
+     <script>
+        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
+           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
+                      https://code.google.com/p/chromium/issues/detail?id=332189
+        */
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/customization/random_referral.js') }}"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 <div class="content container">
     <h2 class="page-title">Be Part of the Decentralized Revolution</h2>
     <div class="row">
-            <div class="col-lg-8">
+            <div class="col-md-8">
                 </br>
                 <div class="box">
                     <div class="big-text">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-md-4">
                 </br>
                 <div class="box">
                     <div class="big-text">
@@ -38,7 +38,7 @@
             Light Blue 4.0 Ajax Version - Made by <a href="https://flatlogic.com" rel="nofollow noopener noreferrer" target="_blank">Flatlogic</a>
         </footer>  --}}
     <div class="row">
-        <div class="col-lg-4 text-center">
+        <div class="col-md-4 text-center">
             <section class="widget">
             </br><header>
                     <h3 style="color: #41d628;"><i class="fa fa-arrow-right"></i>
@@ -50,7 +50,7 @@
                 </header> </br>                
             </section>
         </div>
-        <div class="col-lg-4 text-center">
+        <div class="col-md-4 text-center">
             <section class="widget">
                     </br><header>
                     <h3 style="color: #41d628;"><i class="fa fa-arrow-right"></i>
@@ -61,7 +61,7 @@
                 </header> </br> 
             </section>
         </div>
-        <div class="col-lg-4 text-center">
+        <div class="col-md-4 text-center">
             <section class="widget">
                     </br><header>
                     <h3 style="color: #41d628;"><i class="fa fa-arrow-right"></i>
@@ -88,7 +88,7 @@
                 </header> </br>                
             </section>
         </div>
-        <div class="col-md-5 col-md-offset-2">
+        <div class="col-md-5">
             <section class="widget widget-overview">
                 <header>
                     <h4>
@@ -104,7 +104,10 @@
                             </div>
                             <span class="key">Referal Link</span>
                             <div class="value pull-right">
-                                <span>tradeum.io/register/referal_link</span>
+                                @if(Auth::user()->affiliate_id)
+                                    <input type="text" readonly="readonly" class="form-control input-transparent" style="width:250px;"
+                                        value="{{url('/register'.'/ref/'.Auth::user()->affiliate_id)}}">
+                                @endif
                             </div>
                         </li>
                         <li>

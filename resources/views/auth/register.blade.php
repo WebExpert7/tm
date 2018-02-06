@@ -146,6 +146,22 @@
                                    placeholder="Confirm Password" required>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label for="password" >Affiliate link</label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                            <input id="referral_link" name="" type="text" readonly="readonly"  class="form-control input-lg input-transparent"
+                                    value="{{url('/register/'.'ref')}}">
+                        </div>
+                    </div>
+                    <input type="hidden" id="referral_link_hidden" name="affiliate_id">
+                    @if( ! empty($referred_by))
+                        <input type="hidden" name="referred_by" value={{ $referred_by }}>
+                    @else
+                    <input type="hidden" name="referred_by" value="">
+                    @endif
                 </fieldset>
                 <div class="form-actions">
                     <button type="submit" class="btn btn-block btn-lg btn-info">
