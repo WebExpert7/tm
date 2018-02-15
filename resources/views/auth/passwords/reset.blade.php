@@ -69,77 +69,91 @@
 </div>  --}}
 
 
-<div class="single-widget-container">
-        <section class="widget login-widget">
-            <header class="text-align-center">
-                <h4>Reset Password</h4>
-            </header>
-            <div class="body">
-                <form class="no-margin" method="POST" action="{{ route('password.request') }}">
-                      {{ csrf_field() }}
-                      <input type="hidden" name="token" value="{{ $token }}">
-                    <fieldset>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" >Email</label>
-                            <div class="input-group">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-user"></i>
-                                </span>
-                                <input id="email" type="email" class="form-control input-lg input-transparent"
-                                       placeholder="Your Email" name="email" value="{{ old('email') }}" required autofocus>
-                            </div>
-                            <div>
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="password" >Password</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                                <input id="password" type="password" class="form-control input-lg input-transparent" name="password"
-                                       placeholder="Your Password" required>
-                            </div>
-                            <div>
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password-confirm" >Confirm Password</label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon">
-                                    <i class="fa fa-lock"></i>
-                                </span>
-                                <input id="password-confirm" type="password" class="form-control input-lg input-transparent" name="password_confirmation"
-                                       placeholder="Confirm Password" required>
-                            </div>
-                            <div>
-                                @if ($errors->has('password_confirmation'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password_confirmation') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                    </fieldset>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-block btn-lg btn-warning">
-                            {{--  <span class="small-circle"><i class="fa fa-caret-right"></i></span>  --}}
-                            <small>Reset Password</small>
-                        </button>
-                    </br>
-                    </div>
-                </form>
+<div class="login-container">
+        
+    <div class="login-header login-caret">
+        <div class="login-content">
+            
+            <a href="{{ url('/') }}" class="logo">
+                <img src="{{ asset('images/logo@2x.png') }}" width="120" alt="" />
+            </a>
+            
+            <p class="description">Reset Password!</p>
+            
+            <!-- progress bar indicator -->
+            <div class="login-progressbar-indicator">
+                <h3>43%</h3>
+                <span>resetting...</span>
             </div>
-        </section>
+        </div>
+        
     </div>
+    
+    <div class="login-progressbar">
+        <div></div>
+    </div>
+    <div class="login-form">
+        <div class="login-content">
+            <form role="form" id="form_login"
+                method="POST" action="{{ route('password.request') }}">
+                {{ csrf_field() }}
+                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-mail"></i>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ $email or old('email') }}" autocomplete="off"/ required>
+                        </div>
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-key"></i>
+                            </div>
+                            <input id="password" type="password" class="form-control"
+                                    placeholder="Your Password" name="password" autocomplete="off" required>
+                        </div>
+                        @if ($errors->has('password'))
+                        <div>
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        </div>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-keyboard"></i>
+                            </div>
+                            <input id="password-confirm" type="password" class="form-control"
+                                    placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
+                        </div>
+                        @if ($errors->has('password_confirmation'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password_confirmation') }}</strong>
+                            </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-login">
+                            <i class="entypo-right-open-mini"></i>
+                            Reset Password
+                        </button>
+                    </div>
+            </form>
+            <div class="login-bottom-links">
+            
+                <a href="#">Tradeum</a>  - <a href="#">Privacy Policy</a>
+                
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

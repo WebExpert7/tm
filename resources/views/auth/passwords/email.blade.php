@@ -45,48 +45,78 @@
     </div>
 </div>  --}}
 
-
-<div class="single-widget-container">
-    <section class="widget login-widget">
-        <header class="text-align-center">
-            <h4>Reset Password</h4>
-        </header>
-        <div class="body">
-            @if (session('status'))
+<div class="login-container">
+        
+        <div class="login-header login-caret">
+            <div class="login-content">
+                
+                <a href="{{ url('/') }}" class="logo">
+                    <img src="{{ asset('images/logo@2x.png') }}" width="120" alt="" />
+                </a>
+                
+                <p class="description">Enter your email, and we will send the reset link.</p>
+                
+                <!-- progress bar indicator -->
+                <div class="login-progressbar-indicator">
+                    <h3>43%</h3>
+                    <span>logging in...</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="login-progressbar">
+            <div></div>
+        </div>
+        <div class="login-form">
+            <div class="login-content">
+                @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
-            @endif
-            <form class="no-margin" method="POST" action="{{ route('password.email') }}">
-                  {{ csrf_field() }}
-                <fieldset>
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email" >E-Mail Address</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-user"></i>
-                            </span>
-                            <input id="email" type="email" class="form-control input-lg input-transparent"
-                                   placeholder="Your email" name="email" value="{{ old('email') }}" required autofocus>
-                        </div>
-                        <div>
+                @endif
+                <form role="form" id="form_login"
+                    method="POST" action="{{ route('password.email') }}">
+                    {{ csrf_field() }}
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <i class="entypo-mail"></i>
+                                </div>
+                                
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}" autocomplete="off"/ required>
+                            </div>
                             @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
+                                <div>
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                </div>                                
                             @endif
                         </div>
-                    </div>
-                </fieldset>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-block btn-lg btn-danger">
-                        <span class="small-circle"><i class="fa fa-caret-right"></i></span>
-                        <small>Send Password Reset Link</small>
-                    </button>
-                </br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-block btn-login">
+                                <i class="entypo-right-open-mini"></i>
+                                Complete Registration
+                            </button>
+                        </div>
+                </form>
+                <div class="login-bottom-links">
+				
+                    <a href="{{ route('login') }}" class="link">
+                        <i class="entypo-lock"></i>
+                        Return to Login Page
+                    </a>
+                    
+                    <br />
+                    
+                    <a href="#">Tradeum</a>  - <a href="#">Privacy Policy</a>
+                    
                 </div>
-            </form>
+            </div>
         </div>
-    </section>
+
+    </div>
+
 </div>
 @endsection

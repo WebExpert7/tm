@@ -76,84 +76,111 @@
 </div>  --}}
 
 
-<div class="single-widget-container">
-    <section class="widget login-widget">
-        <header class="text-align-center">
-            <h4>Register to your account</h4>
-        </header>
-        <div class="body">
-            <form class="no-margin" method="POST" action="{{ route('register') }}">
-                  {{ csrf_field() }}
-                <fieldset>
+<div class="login-container">
+        
+    <div class="login-header login-caret">
+        <div class="login-content">
+            
+            <a href="{{ url('/') }}" class="logo">
+                <img src="{{ asset('images/logo@2x.png') }}" width="120" alt="" />
+            </a>
+            
+            <p class="description">Create an account, it's free and takes few moments only!</p>
+            
+            <!-- progress bar indicator -->
+            <div class="login-progressbar-indicator">
+                <h3>43%</h3>
+                <span>Registering in...</span>
+            </div>
+        </div>
+        
+    </div>
+    
+    <div class="login-progressbar">
+        <div></div>
+    </div>
+    <div class="login-form">
+        <div class="login-content">
+            <form role="form" id="form_login"
+                method="POST" action="{{ route('register') }}">
+                {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label for="email" >Name</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-user"></i>
-                            </span>
-                            <input id="name" type="name" class="form-control input-lg input-transparent"
-                                   placeholder="Your Name" name="name" value="{{ old('name') }}" required autofocus>
+                            <div class="input-group-addon">
+                                <i class="entypo-user"></i>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Your Name" value="{{ old('name') }}" autocomplete="off"/ required>
                         </div>
-                        <div>
-                            @if ($errors->has('name'))
+                        @if ($errors->has('name'))
+                            <div>
                                 <span class="help-block">
                                     <strong>{{ $errors->first('name') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>                                
+                        @endif
                     </div>
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="email" >Email</label>
                         <div class="input-group">
-                            <span class="input-group-addon">
-                                <i class="fa fa-user"></i>
-                            </span>
-                            <input id="email" type="email" class="form-control input-lg input-transparent"
-                                   placeholder="Your Email" name="email" value="{{ old('email') }}" required>
+                            <div class="input-group-addon">
+                                <i class="entypo-mail"></i>
+                            </div>
+                            
+                            <input type="text" class="form-control" name="email" id="email" placeholder="Your Email" value="{{ old('email') }}" autocomplete="off"/ required>
                         </div>
-                        <div>
-                            @if ($errors->has('email'))
+                        @if ($errors->has('email'))
+                            <div>
                                 <span class="help-block">
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
-                            @endif
-                        </div>
+                            </div>                                
+                        @endif
                     </div>
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                        <label for="password" >Password</label>
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                            <input id="password" type="password" class="form-control input-lg input-transparent" name="password"
-                                   placeholder="Your Password" required>
+                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-key"></i>
+                            </div>
+                            <input id="password" type="password" class="form-control"
+                                    placeholder="Your Password" name="password" autocomplete="off" required>
                         </div>
+                        @if ($errors->has('password'))
                         <div>
-                            @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
-                            @endif
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
                         </div>
+                        @endif
                     </div>
                     <div class="form-group">
-                        <label for="password-confirm" >Confirm Password</label>
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                            <input id="password-confirm" type="password" class="form-control input-lg input-transparent" name="password_confirmation"
-                                   placeholder="Confirm Password" required>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-keyboard"></i>
+                            </div>
+                            <input id="password-confirm" type="password" class="form-control"
+                                    placeholder="Confirm Password" name="password_confirmation" autocomplete="off" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" >Affiliate link</label>
-                        <div class="input-group input-group-lg">
-                            <span class="input-group-addon">
-                                <i class="fa fa-lock"></i>
-                            </span>
-                            <input id="referral_link" name="" type="text" readonly="readonly"  class="form-control input-lg input-transparent"
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="entypo-link"></i>
+                            </div>
+                            <input id="referral_link" name="" type="text" readonly="readonly"  class="form-control"
                                     value="{{url('/register/'.'ref')}}">
+                        </div>
+                    </div>
+                    <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+
+                        <div class="captcha">
+                            {!! app('captcha')->display() !!}
+
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
                     <input type="hidden" id="referral_link_hidden" name="affiliate_id">
@@ -162,16 +189,27 @@
                     @else
                     <input type="hidden" name="referred_by" value="">
                     @endif
-                </fieldset>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-block btn-lg btn-info">
-                        {{--  <span class="small-circle"><i class="fa fa-caret-right"></i></span>  --}}
-                        <small>Register</small>
-                    </button>
-                </br>
-                </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-login">
+                            <i class="entypo-right-open-mini"></i>
+                            Register
+                        </button>
+                    </div>
             </form>
+            <div class="login-bottom-links">
+            
+                <a href="{{ route('login') }}" class="link">
+                    <i class="entypo-lock"></i>
+                    Return to Login Page
+                </a>
+                
+                <br />
+                
+                <a href="#">Tradeum</a>  - <a href="#">Privacy Policy</a>
+                
+            </div>
         </div>
-    </section>
+    </div>
+
 </div>
 @endsection

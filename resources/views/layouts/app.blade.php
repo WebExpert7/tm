@@ -1,70 +1,63 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Neon Admin Panel" />
+    <meta name="author" content="" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Styles -->
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <link href="{{ asset('css/application.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('landing/img/favicon/favicon.ico') }}">
+
+    <title>Tradeum | Verification</title>
+
+    <link rel="stylesheet" href="{{ asset('js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-icons/entypo/css/entypo.css') }}">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/neon-core.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/neon-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/neon-forms.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
+    <script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
 </head>
-<body>
-    <div id="app">
-        <div class="logo">
-            <h4><a href="{{ url('/') }}">Light <strong>Blue</strong></a></h4>
-        </div>
-        <header class="page-header">
-            <div class="navbar">
-                <ul class="nav navbar-nav navbar-right pull-right">
-                    <li>
-                        <a href="{{ route('login') }}" style="font-size: 15px;">
-                           Login
-                        </a>
-                    </li>
-                    <li>
-                        <span>&nbsp &nbsp &nbsp</span>
-                    </li>
-                    <li>
-                        <a href="{{ route('register') }}" style="font-size: 15px;">
-                           Register
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </header>
-        @yield('content')
-    </div>
+<body class="page-body login-page login-form-fall">
 
-    <!-- Scripts -->
-    <!-- common libraries. required for every page-->
-    <script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
-    <script src="{{ asset('lib/jquery-pjax/jquery.pjax.js') }}"></script>
-    <script src="{{ asset('lib/bootstrap-sass/assets/javascripts/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('lib/widgster/widgster.js') }}"></script>
-    <script src="{{ asset('lib/underscore/underscore.js') }}"></script>
 
-    <!-- common application js -->
-    <script src="{{ asset('js/main_app.js') }}"></script>
-    <script src="{{ asset('js/settings.js') }}"></script>
-
-     <!-- Styles -->
-     <script>
-        /* yeah we need this empty stylesheet here. It's cool chrome & chromium fix
-           chrome fix https://code.google.com/p/chromium/issues/detail?id=167083
-                      https://code.google.com/p/chromium/issues/detail?id=332189
-        */
+    <!-- This is needed when you send requests via Ajax -->
+    <script type="text/javascript">
+    var baseurl = '';
     </script>
-    <script src="{{ asset('js/app.js') }}"></script>
+        @yield('content')
+	
+</div>
+
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+	<!-- Bottom scripts (common) -->
+	<script src="{{ asset('js/gsap/TweenMax.min.js') }}"></script>
+	<script src="{{ asset('js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.js') }}"></script>
+	<script src="{{ asset('js/joinable.js') }}"></script>
+	<script src="{{ asset('js/resizeable.js') }}"></script>
+	<script src="{{ asset('js/neon-api.js') }}"></script>
+	<script src="{{ asset('js/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('js/neon-login.js') }}"></script>
+    
+	<script src="assets/js/jquery.inputmask.bundle.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="{{ asset('js/neon-custom.js') }}"></script>
+
+
+	<!-- Demo Settings -->
+	<script src="{{ asset('js/neon-demo.js') }}"></script>
     <script src="{{ asset('js/customization/random_referral.js') }}"></script>
 </body>
 </html>

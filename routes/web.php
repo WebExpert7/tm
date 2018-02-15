@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/tokensale', 'TokensaleController@index')->name('token_sale');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('register/ref/{from_affiliate_id}', 'Auth\RegisterController@referredUser');
+
+Route::get('/download/{language}', 'DownloadController@download');
