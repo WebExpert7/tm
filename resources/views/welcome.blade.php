@@ -8,6 +8,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta property="og:image" content="path/to/image.jpg">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <link rel="shortcut icon" href="{{ asset('landing/img/favicon/favicon.ico') }}" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('landing/img/favicon/apple-icon-57x57.png') }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('landing/img/favicon/apple-icon-60x60.png') }}">
@@ -1019,29 +1022,66 @@
                 <h1 class="section-header white">
                     <span>Contact us</span>
                 </h1>
-                <form class="signup-form row">
+                @if (session('status'))
+                    <div class="alert alert-success" style="text-align: center; color: limegreen;">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                <form class="signup-form row" method="POST" action="{{ route('contact_email') }}">
+                    {{ csrf_field() }}
                     <div class="col-md-offset-3 col-md-6 col-sm-offset-2 col-sm-8 col-xs-12">
                         <div class="form-group col-12 col-md-12">
                             <label for="firstname">Name</label>
-                            <input type="text" class="form-control contact-us_input" id="firstname" name="firstname"
+                            <input type="text" class="form-control contact-us_input" id="firstname" name="name"
                                     placeholder="Your name here...">
+                            @if ($errors->has('name'))
+                            <div>
+                                <span class="help-block" style="color: red;">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            </div>                                
+                            @endif
                         </div>
                         <div class="form-group col-12 col-md-12">
                             <label for="emailaddress">Email</label>
-                            <input type="email" class="form-control contact-us_input" id="emailaddress" name="emailaddress"
+                            <input type="email" class="form-control contact-us_input" id="emailaddress" name="email"
                                     placeholder="Your email address here...">
+                            @if ($errors->has('email'))
+                            <div>
+                                <span class="help-block" style="color: red;">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            </div>                                
+                            @endif
                         </div>
                         <div class="form-group col-12 col-md-12">
                             <label for="message">Message</label>
                             <textarea class="form-control message" id="message" name="message"
                                         placeholder="Your message here..."></textarea>
+                            @if ($errors->has('message'))
+                            <div>
+                                <span class="help-block" style="color: red;">
+                                    <strong>{{ $errors->first('message') }}</strong>
+                                </span>
+                            </div>                                
+                            @endif
+                        </div>
+                        <div class="form-group col-sm-offset-2 col-md-offset-2 col-12 col-md-12 recaptcha">
+                                <div class="captcha" style="width: 50px;">
+                                    {!! app('captcha')->display() !!}
+                                </div>
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block" style="color: red;">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                         </div>
                         <div class="row">
                             <div style="font-size: 1em; text-align: center;"
                                     class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-offset-1 col-xs-10 buttons-block">
-                                <a class="button wayra" href="#0" style=" padding: 1em 0.5em">
+                                <button type="submit" class="button wayra" href="#0" style=" padding: 1em 0.5em">
                                     <span>Send Message&nbsp;&nbsp; <i class="fas fa-paper-plane"></i></span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1060,6 +1100,9 @@
     <a class="btn-lg scrollup"><i class="fa fa-arrow-up"></i></a>
 
 <link rel="stylesheet" href="{{ asset('landing/css/main.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
+
+<script src='https://www.google.com/recaptcha/api.js'></script>
 <script src="{{ asset('landing/js/scripts.min.js') }}"></script>
 <script src="{{ asset('landing/js/about.js') }}"></script>
 <script src="{{ asset('landing/js/advantages.js') }}"></script>

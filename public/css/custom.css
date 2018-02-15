@@ -41,3 +41,28 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.recaptcha {
+    margin-left: 19%;
+}
+
+@media (max-width: 1199px){
+    .recaptcha {
+        margin-left: 12%;
+    }
+}
+@media (max-width: 768px){
+    .recaptcha {
+        margin-left: 26%;
+    }
+}
+@media (max-width: 696px){
+    .recaptcha {
+        margin-left: 21%;
+    }
+}
+@media (max-width: 499px){
+    .recaptcha {
+        margin-left: 12%;
+    }
+}
