@@ -258,7 +258,7 @@ $(document).ready(function ($) {
 
 // Counter
 // TODO: change countdown value to your oun
-$('#hero-section__counter').countdown('2018/02/26').on('update.countdown', function (event) {
+$('#hero-section__counter').countdown('2018/03/10 17:00:00').on('update.countdown', function (event) {
   var $this = $(this).html(event.strftime(''
     + '<span class="hero-section__counter-block"><span>%D</span> Days</span> '
     + '<span class="hero-section__counter-block"><span>%H</span> Hours</span> '

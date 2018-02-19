@@ -66,3 +66,12 @@ body {
         margin-left: 12%;
     }
 }
+.login-content .checkbox label input {
+    position: relative;
+    top: 0px;
+}
+
+.login-content .checkbox a {
+    text-decoration: underline;
+    cursor: pointer;
+}

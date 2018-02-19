@@ -901,12 +901,13 @@
                                 that is planned for launch in the second quarter of 2018.
                             </div>
                         </div>
-                        <div class="ad-block"><a href="#" class="ad-title iq-tw-6 iq-font-grey">Will the exchange have
-                            the same theme as the current website and dashboard?</a>
+                        <div class="ad-block"><a href="#" class="ad-title iq-tw-6 iq-font-grey">Will the Tradeum token sale
+                            be KYC compliant?</a>
                             <div class="ad-details">
-                                With the help of the token sale contributions, we will develop a new website and
-                                dashboard. This will have the two versions of exchange, as well as the rest of
-                                the platform programs.
+                                Yes, it will. We plan to be KYC compliant in order to protect Tradeum, as well as our token
+                                sale contributors. Fulfilling this process successfully will be required in order to
+                                withdraw tokens after the completion of the token sale. Citizens from the United States,
+                                China, and Singapore are prohibited from participating in the token sale.
                             </div>
                         </div>
                         <div class="ad-block"><a href="#" class="ad-title iq-tw-6 iq-font-grey">What is the 0x protocol?</a>

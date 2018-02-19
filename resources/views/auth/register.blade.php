@@ -101,7 +101,7 @@
     </div>
     <div class="login-form">
         <div class="login-content">
-            <form role="form" id="form_login"
+            <form role="form" id="form_register"
                 method="POST" action="{{ route('register') }}">
                 {{ csrf_field() }}
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -183,6 +183,23 @@
                             @endif
                         </div>
                     </div>
+                    <div class="form-group{{ $errors->has('terms') ? ' has-error' : '' }}">
+                        <div class="">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="condition_agree" class="" name="terms" value="1">
+                                </label>
+                                <span>&nbsp; I have read, understood and hereby accept the </br><a href="{{ asset('download/term_policy/term_condition.pdf') }}" style="color: mediumspringgreen;" target="_blank">Terms and Conditions</a>, and the <a href="{{ asset('download/term_policy/privacy_policy.pdf') }}" style="color: mediumspringgreen;" target="_blank">Privacy Policy</a></span>
+                            </div>
+                        </div>
+                        <div class="">
+                            @if ($errors->has('terms'))
+                             <span class="help-block">
+                               <strong>{{ $errors->first('terms') }}</strong>
+                             </span>
+                            @endif
+                        </div>
+                    </div>
                     <input type="hidden" id="referral_link_hidden" name="affiliate_id">
                     @if( ! empty($referred_by))
                         <input type="hidden" name="referred_by" value={{ $referred_by }}>
@@ -204,8 +221,6 @@
                 </a>
                 
                 <br />
-                
-                <a href="#">Tradeum</a>  - <a href="#">Privacy Policy</a>
                 
             </div>
         </div>

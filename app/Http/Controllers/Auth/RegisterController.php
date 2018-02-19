@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'g-recaptcha-response' => 'required|captcha',
+            'terms' => 'required',
         ]);
     }
 
@@ -113,7 +114,7 @@ class RegisterController extends Controller
     {
         // $this->from_referral_token = $from_affiliate_id;
         $referred_by = $from_affiliate_id;
-        return view('Auth/register', ['referred_by' => $referred_by]);
+        return view('auth/register', ['referred_by' => $referred_by]);
     }
 
     protected function registered($request, $user)

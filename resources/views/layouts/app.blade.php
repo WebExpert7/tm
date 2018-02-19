@@ -49,7 +49,7 @@
 	<script src="{{ asset('js/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('js/neon-login.js') }}"></script>
     
-	<script src="assets/js/jquery.inputmask.bundle.js"></script>
+	<script src="{{ asset('assets/js/jquery.inputmask.bundle.js') }}"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->
@@ -59,5 +59,6 @@
 	<!-- Demo Settings -->
 	<script src="{{ asset('js/neon-demo.js') }}"></script>
     <script src="{{ asset('js/customization/random_referral.js') }}"></script>
+    <script src="{{ asset('js/customization/custom.js') }}"></script>
 </body>
 </html>
