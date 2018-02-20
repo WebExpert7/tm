@@ -94,15 +94,16 @@
 				element: 'chart3',
 				axes: true,
 				data: [
-					{x: '2013 Q1', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-					{x: '2013 Q2', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-					{x: '2013 Q3', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)},
-					{x: '2013 Q4', y: getRandomInt(1,10), z: getRandomInt(1,10), a: getRandomInt(1,10)}
+					{x: 'Presale', a: 0.25},
+					{x: 'Round 2', a: 0.29},
+					{x: 'Round 3', a: 0.33},
+					{x: 'Round 4', a: 0.4},
+					{x: 'Round 5', a: 0.5}
 				],
 				xkey: 'x',
-				ykeys: ['y', 'z', 'a'],
-				labels: ['Facebook', 'LinkedIn', 'Google+'],
-				barColors: ['#707f9b', '#455064', '#242d3c']
+				ykeys: ['a'],
+				labels: ['USD'],
+				barColors: ['#455064']
 			});
 			
 			// Stacked Bar Charts

@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/tokensale', 'TokensaleController@index')->name('token_sale');
+Route::get('/wallet', 'WalletController@index')->name('wallet');
+Route::get('/account', 'AccountController@index')->name('account');
+Route::get('/support', 'SupportController@index')->name('support');
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('register/ref/{from_affiliate_id}', 'Auth\RegisterController@referredUser');
 
