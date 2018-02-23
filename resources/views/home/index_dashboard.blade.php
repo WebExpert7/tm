@@ -128,14 +128,14 @@
 
             <div class="panel-body">
                 
-                <p style="color: grey">Referal Link</p>
+                <p style="color: grey">Referral Link</p>
 
                 <div class="input-group minimal">
                     @if(Auth::user()->affiliate_id)
                         <input type="text" readonly="readonly" class="form-control input-transparent" style=""
                             value="{{url('/register'.'/ref/'.Auth::user()->affiliate_id)}}">
                     @endif
-                    <span class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                    <span id="copy_btn" class="input-group-addon"><i class="fa fa-file-text"></i></span>
                 </div>
 
                 <div class="row">

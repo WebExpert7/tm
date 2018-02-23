@@ -208,11 +208,13 @@
 	<script src="{{ asset('js/rickshaw/vendor/d3.v3.js') }}"></script>
 	<script src="{{ asset('js/raphael-min.js') }}"></script>
 	<script src="{{ asset('js/toastr.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-switch.min.js') }}"></script>
 	<script src="{{ asset('js/neon-chat.js') }}"></script>
 	<script src="{{ asset('js/morris.min.js') }}"></script>
 	<script src="{{ asset('js/neon-charts.js') }}"></script>
 	<script src="{{ asset('js/datatables/datatables.js') }}"></script>
 	<script src="{{ asset('js/select2/select2.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.validate.min.js') }}"></script>
 
 
 	<!-- JavaScripts initializations and stuff -->

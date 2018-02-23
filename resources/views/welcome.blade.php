@@ -1109,6 +1109,6 @@
 <script src="{{ asset('landing/js/advantages.js') }}"></script>
 <script src="{{ asset('landing/js/token-sale.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.4/js/all.js"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/packery/1.4.2/packery.pkgd.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.2/packery.pkgd.min.js'></script>
 </body>
 </html>

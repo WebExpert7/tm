@@ -1,160 +1,172 @@
 @extends('layouts.dashlayout')
 
 @section('content')
-<h1>Account</h1>
-
-<div class="tokensale-top-message">
-</div>
-
+<h2>Account</h2>
 <br />
-
 <div class="row">
+
     <div class="col-sm-6 col-xs-12">
 
-        <div class="tokensale-time-pannel tokensale-custom-pannel">
-            <p>Countdown Until Presale</p>
-            <div id="round_time">
-                {{-- <div>
-                    <number>03</number>
-                    <span>Days</span>
-                </div>
-                <div>
-                    <number>02</number>
-                    <span>Hours</span>
-                </div>
-                <div>
-                    <number>36</number>
-                    <span>Minutes</span>
-                </div> --}}
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <div class="panel-title">Profile</div>
             </div>
-            <i class="entypo-clock"></i>
+
+            <div class="panel-body">
+
+                <form role="profile" id="profile" method="post" class="validate">
+
+                    <div class="form-group">
+                        <label class="control-label">Username</label>
+
+                        <input type="text" class="form-control" name="username" data-validate="required" data-message-required="This is custom message for required field." placeholder="Username Field" value="{{ Auth::user()->name }}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Email</label>
+
+                        <input type="text" class="form-control" name="email" data-validate="email" placeholder="Email Field" value="{{ Auth::user()->email }}"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-blue">Save changes</button>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="col-sm-3 col-xs-12">
+    <div class="col-sm-6 col-xs-12">
 
-        <div class="tokensale-balance-pannel tokensale-custom-pannel tokensale-total-eth">
-            <div>
-                <span>Total ETH</span>
-                <br />
-                <number>2.0</number>
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <div class="panel-title">Password</div>
             </div>
-            <div class="icon"><img src="{{ asset('images/ether_black.png') }}" /></div>
+
+            <div class="panel-body">
+
+                <form role="reset_password" id="reset_password" method="post" class="validate">
+
+                    <div class="form-group">
+                        <label class="control-label">Current password</label>
+
+                        <input type="password" class="form-control" name="current_password" data-validate="required" data-message-required="This is current for required field."/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">New password</label>
+
+                        <input type="password" class="form-control" name="new_password" data-validate="required" data-message-required="This is new password for required field."/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Confirm new password</label>
+
+                        <input type="password" class="form-control" name="confirm_password" data-validate="required" data-message-required="This is confirm for required field."/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-blue">Save changes</button>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="col-sm-3 col-xs-12">
-
-        <div class="tokensale-balance-pannel tokensale-custom-pannel tokensale-total-trm">
-
-            <div>
-                <span>Total TRM</span>
-                <br />
-                <number>2.0</number>
-            </div>
-            <div class="icon"><img src="{{ asset('images/trm_icon_black.png') }}" /></div>
-        </div>
-
-    </div>
 </div>
-
-<br />
-<br />
 
 <div class="row">
-    
-        <div class="col-sm-12 col-xs-12">
-            
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Round</th>
-                        <th>Date</th>
-                        <th>Price (TRM/TEH)</th>
-                        <th>Available TRM</th>
-                        <th>Sold TRM</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <tr>
-                        <td>Presale</td>
-                        <td>March 1st</td>
-                        <td>4000</td>
-                        <td>1,000,000</td>
-                        <td>0</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>1</td>
-                        <td>March 10th</td>
-                        <td>3500</td>
-                        <td>3,5000,000</td>
-                        <td>0</td>
-                    </tr>
-                
-                    <tr>
-                        <td>2</td>
-                        <td>March 17th</td>
-                        <td>3000</td>
-                        <td>4,000,000</td>
-                        <td>0</td>
-                    </tr>
 
-                    <tr>
-                        <td>3</td>
-                        <td>March 23rd</td>
-                        <td>2500</td>
-                        <td>4,500,000</td>
-                        <td>0</td>
-                    </tr>
+    <div class="col-sm-6 col-xs-12">
 
-                    <tr>
-                        <td>4</td>
-                        <td>April 1st</td>
-                        <td>2000</td>
-                        <td>5,000,000</td>
-                        <td>0</td>
-                    </tr>
+        <div class="panel panel-primary">
 
-                </tbody>
-            </table>
-            
+            <div class="panel-heading">
+                <div class="panel-title">Team</div>
+            </div>
+
+            <div class="panel-body">
+
+                <form role="profile" id="profile" method="post" class="validate">
+
+                    <div class="form-group">
+                        <label class="control-label">Team members</label>
+
+                        <input type="text" class="form-control" readonly="readonly" value="3">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Total commision</label>
+
+                        <input type="text" class="form-control" readonly="readonly" value="200">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Team members</label>
+                        <div class="input-group minimal">
+                            @if(Auth::user()->affiliate_id)
+                                <input type="text" readonly="readonly" class="form-control input-transparent" style=""
+                                    value="{{url('/register'.'/ref/'.Auth::user()->affiliate_id)}}">
+                            @endif
+                            <span id="copy_btn" class="input-group-addon"><i class="fa fa-file-text"></i></span>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+
         </div>
 
-</div>
-<br />
+    </div>
 
-<div class="row">
-    <div class="col-sm-12 col-xs-12">
-        <h2>Token Sale Transactions</h2>
-        <table class="table table-bordered datatable" id="token_transaction">
-            <thead>
-                <tr>
-                    <th data-hide="phone">Transaction ID</th>
-                    <th>Amount</th>
-                    <th data-hide="phone">Date</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="odd gradeX">
-                    <td>Das0df87a0sdf89agf0a77890987gsdf</td>
-                    <td>300</td>
-                    <td>07/03/2018</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Amount</th>
-                    <th>Date</th>
-                </tr>
-            </tfoot>
-        </table>
+    <div class="col-sm-6 col-xs-12">
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <div class="panel-title">Security</div>
+            </div>
+
+            <div class="panel-body">
+
+                <form role="reset_password" id="reset_password" method="post" class="validate">
+
+                    <div class="form-group bs-example">
+                        <label class="control-label">Enable 2FA</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="make-switch is-radio switch-small" data-text-label="<i class='entypo-user'></i>">
+                            <input type="radio" name="radio1" checked />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Phone number</label>
+
+                        <input type="text" class="form-control" name="phone_number" value="+17054152265"/>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-blue">Save changes</button>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
     </div>
 
 </div>
-
 @endsection
