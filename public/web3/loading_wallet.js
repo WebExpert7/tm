@@ -11,11 +11,11 @@ if (typeof erc20contract_address == "undefined") {
 }
 
 var ks = localStorage.getItem('trm_keystorage');
-if (ks) {
+if (ks != null) {
     ks = lightwallet.keystore.deserialize(ks);
 }
 
-console.log(ks);
+// console.log(ks);
 
 ERC20ABI = [{"constant":false,"inputs":[{"name":"spender","type":"address"},{"name":"value","type":"uint256"}],"name":"approve","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"from","type":"address"},{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transferFrom","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"who","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"to","type":"address"},{"name":"value","type":"uint256"}],"name":"transfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"owner","type":"address"},{"name":"spender","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"anonymous":false,"inputs":[{"indexed":true,"name":"from","type":"address"},{"indexed":true,"name":"to","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"owner","type":"address"},{"indexed":true,"name":"spender","type":"address"},{"indexed":false,"name":"value","type":"uint256"}],"name":"Approval","type":"event"}];
 
@@ -285,6 +285,7 @@ if(openkey == null){
                 localStorage.setItem("trm_prev", data.prev);
                 localStorage.setItem("trm_keystorage", data.keystorage);
                 localStorage.setItem("trm_secretSeed", data.secretSeed);
+                ks = lightwallet.keystore.deserialize(data.keystorage);
                 pageLoader.hide();
                 rebalance();
         },
@@ -313,6 +314,7 @@ function check_wallet(){
                 localStorage.setItem("trm_prev", data.prev);
                 localStorage.setItem("trm_keystorage", data.keystorage);
                 localStorage.setItem("trm_secretSeed", data.secretSeed);
+                ks = lightwallet.keystore.deserialize(data.keystorage);
                 rebalance();
             }
             else{

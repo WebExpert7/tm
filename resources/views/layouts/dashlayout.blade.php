@@ -231,6 +231,7 @@
     <!-- web3 -->
     <script src="{{ asset('web3/web3.min.js') }}"></script>
 	<script src="{{ asset('web3/lightwallet.min.js') }}"></script>
+    <script src="{{ asset('web3/customization/wallet_info.js') }}"></script>
     <script src="{{ asset('web3/loading_wallet.js') }}"></script>
 </body>
 </html>
