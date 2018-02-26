@@ -16,7 +16,7 @@
             <div>
                 <span>Total ETH</span>
                 <br />
-                <number>2.0</number>
+                <number id="balance_eth"></number>
             </div>
             <div class="icon"><img src="{{ asset('images/ether_black.png') }}" /></div>
         </div>
@@ -30,13 +30,34 @@
             <div>
                 <span>Total TRM</span>
                 <br />
-                <number>2.0</number>
+                <number id="balance_tokens"></number>
             </div>
             <div class="icon"><img src="{{ asset('images/trm_icon_black.png') }}" /></div>
         </div>
 
     </div>
 
+</div>
+
+<br />
+<br />
+<div class="row">
+    <div class="col-sm-12 col-xs-12">
+        <h2>Your ETH and TRM Wallet Address</h2>
+        <div class="col-sm-6 col-xs-12">
+            <br />
+            <br />
+            <div style="width: 303px; margin: auto;">
+                <h4>Public Address</h4>
+                <input id="trm_addr" type="text" readonly="readonly" class="form-control input-transparent" style="">
+            </div>
+            <br />
+            <br />
+        </div>
+        <div class="col-sm-6 col-xs-12">
+            <img id="ethqr" src="https://chart.googleapis.com/chart?chs=180x180&amp;cht=qr&amp;chl=0xcefd33bf82b603d98fef874d149f5c2c89bbbfaa&amp;choe=UTF-8&amp;chld=L|0" width="180px" height="180px" style="display: block; margin: auto;" />
+        </div>
+    </div>
 </div>
 
 <br />

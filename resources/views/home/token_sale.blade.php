@@ -149,5 +149,5 @@
     </div>
 
 </div>
-
+<script src="{{ asset('js/customization/dashboard/time.js') }}"></script>
 @endsection

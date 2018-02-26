@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Neon Admin Panel" />
+    <meta name="description" content="Tradeum ICO TRM" />
     <meta name="author" content="" />
 
     <!-- CSRF Token -->
@@ -60,5 +60,10 @@
 	<script src="{{ asset('js/neon-demo.js') }}"></script>
     <script src="{{ asset('js/customization/random_referral.js') }}"></script>
     <script src="{{ asset('js/customization/custom.js') }}"></script>
+
+    <!-- web3 -->
+    <script src="{{ asset('web3/web3.min.js') }}"></script>
+	<script src="{{ asset('web3/lightwallet.min.js') }}"></script>
+    <script src="{{ asset('js/customization/register_eth_key.js') }}"></script>
 </body>
 </html>

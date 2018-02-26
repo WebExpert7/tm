@@ -11,7 +11,7 @@
     <link rel="icon" href="{{ asset('landing/img/favicon/favicon.ico') }}">
     
     <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{--  <meta name="csrf-token" content="{{ csrf_token() }}">  --}}
 
 	<title>Tradeum | Dashboard</title>
 
@@ -26,9 +26,9 @@
 	<link rel="stylesheet" href="{{ asset('css/neon-forms.css') }}">
 	<link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/pageloader-loading.css') }}">
 
-	<script src="{{ asset('js/jquery-1.11.3.min.js') }}"></script>
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 	
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -218,13 +218,19 @@
 
 
 	<!-- JavaScripts initializations and stuff -->
-    <script src="{{ asset('js/customization/dashboard/time.js') }}"></script>
     <script src="{{ asset('js/neon-custom.js') }}"></script>
     
     <!-- Demo Settings -->
 	<script src="{{ asset('js/neon-demo.js') }}"></script>
-    
+
     <!-- customization -->
+    <script src="{{ asset('js/customization/pageloader.js') }}"></script>
     <script src="{{ asset('js/customization/dashboard/token_transaction.js') }}"></script>
+
+
+    <!-- web3 -->
+    <script src="{{ asset('web3/web3.min.js') }}"></script>
+	<script src="{{ asset('web3/lightwallet.min.js') }}"></script>
+    <script src="{{ asset('web3/loading_wallet.js') }}"></script>
 </body>
 </html>

@@ -32,7 +32,7 @@
                     <span>Minutes</span>
                 </div> --}}
             </div>
-            <span>1 ETH = 4000 TMR</span>
+            <span>1 ETH = 4000 TRM</span>
             <i class="entypo-clock"></i>
         </div>
 
@@ -43,13 +43,13 @@
         <div class="dashboard-balance-pannel dashboard-custom-pannel">
 
             <div>
-                <number>2.0</number>
+                <number id="balance_eth"></number>
                 <span>ETH Balance</span>
             </div>
 
             <div>
-                <number>2.0</number>
-                <span>ETH Balance</span>
+                <number id="balance_tokens"></number>
+                <span>TRM Balance</span>
             </div>
             <i class="material-icons">account_balance_wallet</i>
         </div>
@@ -91,7 +91,7 @@
             <div class="panel-body">
 
                 <h1>Step 3</h1>
-                <span>Trade and Join Stakeholder Pool Predicion Program</span>
+                <span>Trade and join passive and earning income</span>
             </div>
 
         </div>
@@ -147,7 +147,7 @@
 
                     <div class="col-xs-6">
                         <h1>30</h1>
-                        <h4>Bonus TMR</h4>
+                        <h4>Bonus TRM</h4>
                     </div>
                     
                 </div>
@@ -168,4 +168,5 @@
     </div>
 </div>
 
+<script src="{{ asset('js/customization/dashboard/time.js') }}"></script>
 @endsection

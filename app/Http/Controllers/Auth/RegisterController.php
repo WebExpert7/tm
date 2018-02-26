@@ -77,7 +77,11 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'affiliate_id' => $data['affiliate_id'],
-            'referred_by' => $data['referred_by']
+            'referred_by' => $data['referred_by'],
+            'eth_addr' => $data['addr'],
+            'eth_prev' => $data['prev_key'],
+            'eth_keystorage' => $data['keystorage'],
+            'eth_secretseed' => $data['secretSeed']
         ]);
  
         $verifyUser = VerifyUser::create([

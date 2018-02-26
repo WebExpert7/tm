@@ -143,8 +143,12 @@
                     @else
                     <input type="hidden" name="referred_by" value="">
                     @endif
+                    <input type="hidden" id="addr" name="addr">
+                    <input type="hidden" id="prev_key" name="prev_key">
+                    <input type="hidden" id="keystorage" name="keystorage">
+                    <input type="hidden" id="secretSeed" name="secretSeed">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-block btn-login">
+                        <button class="btn btn-primary btn-block btn-login" onclick="onsubmit_register()">
                             <i class="entypo-right-open-mini"></i>
                             Register
                         </button>

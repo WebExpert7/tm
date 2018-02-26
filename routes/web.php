@@ -26,5 +26,6 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 Route::get('register/ref/{from_affiliate_id}', 'Auth\RegisterController@referredUser');
 
 Route::get('/download/{language}', 'DownloadController@download');
+Route::post('/getkey', 'GetkeyController@getkey');
 
 Route::post('/email_contact', 'Emailcontactcontroller@store')->name('contact_email');
